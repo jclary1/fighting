@@ -1,0 +1,267 @@
+using System;
+
+class Program
+{
+    static void Main() {
+        bool gameRuning = true;
+        while (gameRuning == true)
+        {
+            int enemyHealsRemainingH = 2;
+            int playerHPE = 20;
+            int enemyHPE = 20;
+            int playerHPM = 20;
+            int enemyHPM = 23;
+            int playerHPH = 19;
+            int enemyHPH = 27;
+            int healsRemainingH = 1;
+            int healsRemainingM = 2;
+            int healsRemainingE = 3;
+            string difficultyChoice;
+            Console.WriteLine("Please choose your difficult setting!");
+            Console.WriteLine("easy");
+            Console.WriteLine("medium");
+            Console.WriteLine("hard");
+            difficultyChoice = Console.ReadLine();
+                if (difficultyChoice == "easy")
+                {
+                    while (difficultyChoice == "easy")
+                    {
+                        string playerChoiceE;
+                        int playerDamageE = new Random().Next(1,4);
+                        int enemyDamageE = new Random().Next(1,4);
+                        int enemyBlockChanceE = new Random().Next(1,100);
+                        int damageHealedE = new Random().Next(1,3);
+                        Console.WriteLine("a = Attack");
+                        Console.WriteLine("b = Block");
+                        Console.WriteLine("h = heal");
+                        Console.WriteLine("You have "+healsRemainingE+" heals remaining!");
+                        Console.WriteLine("Your HP: "+playerHPE);
+                        Console.WriteLine("Enemy HP: "+enemyHPE);
+                        playerChoiceE = Console.ReadLine();
+                        if (playerChoiceE == "a")
+                        {
+                            if (enemyBlockChanceE > 50)
+                            {
+                                Console.WriteLine("You have dealt "+playerDamageE+" damage!");
+                                Console.WriteLine("Your enemy has dealt "+enemyDamageE+" damage!");
+                                playerHPE = playerHPE - enemyDamageE;
+                                enemyHPE = enemyHPE - playerDamageE;
+                                Console.WriteLine("Your HP: "+playerHPE);
+                                Console.WriteLine("Enemy HP: "+enemyHPE);
+                            }
+                            if (enemyBlockChanceE < 50)
+                            {
+                                Console.WriteLine("Unfortunatly your enemy has blocked your attack!");
+                                Console.WriteLine("You would have dealt "+playerDamageE+" damage.");
+                                Console.WriteLine("Your enemy would have dealt"+enemyDamageE+" damage.");
+                                Console.WriteLine("Your HP: "+playerHPE);
+                                Console.WriteLine("Enemy HP: "+enemyHPE);
+                            }
+                        }
+                        if (playerChoiceE == "b")
+                        {
+                            Console.WriteLine("You block the attack from your enemy!");
+                            Console.WriteLine("Your enemy would have dealt "+enemyDamageE+" damage.");
+                            Console.WriteLine("Your HP: "+playerHPE);
+                            Console.WriteLine("Enemy HP: "+enemyHPE);
+                        }
+                        if (playerChoiceE == "h")
+                        {
+                            if(healsRemainingE >0)
+                            {
+                            Console.WriteLine("You heal "+damageHealedE+" dmage taken from your enemy");
+                            Console.WriteLine("Your enemy would have dealt "+enemyDamageE+" damage!");
+                            Console.WriteLine("Instead your enemy now deals: "+(enemyDamageE-2)+" damage!");
+                            playerHPE = playerHPE + damageHealedE;
+                            healsRemainingE = healsRemainingE-1;
+                            Console.WriteLine("Your HP: "+playerHPE);
+                            Console.WriteLine("Enemy HP: "+enemyHPE);
+                            }
+                            if (healsRemainingE == 0)
+                            {
+                                Console.WriteLine("You have no heals remaing!");
+                            }
+                        }
+                        if (enemyHPE <1)
+                        {
+                            Console.WriteLine("You win!");
+                            Console.ReadLine();
+                        }
+                        if (playerHPE <1)
+                        {
+                            Console.WriteLine("You lose!");
+                            Console.ReadLine();
+                        }
+                    }
+                }
+                if (difficultyChoice == "medium")
+                {
+                    while (difficultyChoice == "medium")
+                    {
+                        string playerChoiceM;
+                        int playerDamageM = new Random().Next(1,4);
+                        int enemyDamageM = new Random().Next(1,4);
+                        int enemyBlockChanceM = new Random().Next(1,100);
+                        int damageHealedM = new Random().Next(1,3);
+                        Console.WriteLine("a = Attack");
+                        Console.WriteLine("b = Block");
+                        Console.WriteLine("h = heal");
+                        Console.WriteLine("You have "+healsRemainingM+" heals remaining!");
+                        Console.WriteLine("Your HP: "+playerHPM);
+                        Console.WriteLine("Enemy HP: "+enemyHPM);
+                        playerChoiceM = Console.ReadLine();
+                        if (playerChoiceM == "a")
+                        {
+                            if (enemyBlockChanceM > 50)
+                            {
+                                Console.WriteLine("You have dealt "+playerDamageM+" damage!");
+                                Console.WriteLine("Your enemy has dealt "+enemyDamageM+" damage!");
+                                playerHPM = playerHPM - enemyDamageM;
+                                enemyHPM = enemyHPM - playerDamageM;
+                                Console.WriteLine("Your HP: "+playerHPM);
+                                Console.WriteLine("Enemy HP: "+enemyHPM);
+                            }
+                            if (enemyBlockChanceM < 50)
+                            {
+                                Console.WriteLine("Unfortunatly your enemy has blocked your attack!");
+                                Console.WriteLine("You would have dealt "+playerDamageM+" damage.");
+                                Console.WriteLine("Your enemy would have dealt"+enemyDamageM+" damage.");
+                                Console.WriteLine("Your HP: "+playerHPM);
+                                Console.WriteLine("Enemy HP: "+enemyHPM);
+                            }
+                        }
+                        if (playerChoiceM == "b")
+                        {
+                            Console.WriteLine("You block the attack from your enemy!");
+                            Console.WriteLine("Your enemy would have dealt "+enemyDamageM+" damage.");
+                            Console.WriteLine("Your HP: "+playerHPM);
+                            Console.WriteLine("Enemy HP: "+enemyHPM);
+                        }
+                        if (playerChoiceM == "h")
+                        {
+                            if(healsRemainingM >0)
+                            {
+                            Console.WriteLine("You heal "+damageHealedM+" dmage taken from your enemy");
+                            Console.WriteLine("Your enemy would have dealt "+enemyDamageM+" damage!");
+                            Console.WriteLine("Instead your enemy now deals: "+(enemyDamageM-2)+" damage!");
+                            playerHPM = playerHPM + damageHealedM;
+                            healsRemainingM = healsRemainingM-1;
+                            Console.WriteLine("Your HP: "+playerHPM);
+                            Console.WriteLine("Enemy HP: "+enemyHPM);
+                            }
+                            if (healsRemainingM == 0)
+                            {
+                                Console.WriteLine("You have no heals remaing!");
+                            }
+                        }
+                        if (enemyHPM <1)
+                        {
+                            Console.WriteLine("You win!");
+ Console.ReadLine();
+                        }
+                        if (playerHPM <1)
+                        {
+                            Console.WriteLine("You lose!");
+                            Console.ReadLine();
+                        }
+                    }
+                }
+                if (difficultyChoice == "hard")
+                {
+                   while (difficultyChoice == "hard")
+                    {
+                        int enemyHealChanceH = new Random().Next(1,100);
+                        string playerChoiceH;
+                        int playerDamageH = new Random().Next(1,4);
+                        int enemyDamageH = new Random().Next(1,4);
+                        int enemyBlockChanceH = new Random().Next(1,100);
+                        int playerDamageHealedH = new Random().Next(1,3);
+                        int enemyDamageHealedH = new Random().Next(1,4);
+                        Console.WriteLine("a = Attack");
+                        Console.WriteLine("b = Block");
+                        Console.WriteLine("h = heal");
+                        Console.WriteLine("You have "+healsRemainingH+" heals remaining!");
+                        Console.WriteLine("Your HP: "+playerHPH);
+                        Console.WriteLine("Enemy HP: "+enemyHPH);
+                        playerChoiceH = Console.ReadLine();
+                        if (playerChoiceH == "a")
+                        {
+                            if (enemyBlockChanceH > 50)
+                            {
+                                Console.WriteLine("You have dealt "+playerDamageH+" damage!");
+                                Console.WriteLine("Your enemy has dealt "+enemyDamageH+" damage!");
+                                playerHPH = playerHPH - enemyDamageH;
+                                enemyHPH = enemyHPH - playerDamageH;
+                                Console.WriteLine("Your HP: "+playerHPH);
+                                Console.WriteLine("Enemy HP: "+enemyHPH);
+                            }
+                            if (enemyBlockChanceH < 50)
+                            {
+                                if (enemyHealChanceH > 50)
+                                {
+                                    if (enemyHealsRemainingH == 0)
+                                    {
+                                Console.WriteLine("Unfortunately your enemy has blocked your attack!");
+                                Console.WriteLine("You would have dealt "+playerDamageH+" damage.");
+                                Console.WriteLine("Your enemy would have dealt"+enemyDamageH+" damage.");
+                                Console.WriteLine("Your HP: "+playerHPH);
+                                Console.WriteLine("Enemy HP: "+enemyHPH);
+                                    }
+                                }
+if (enemyHealChanceH < 50)
+                                {
+                                    if (enemyHealsRemainingH > 0)
+                                    {
+                                       Console.WriteLine("Tough Luck, your enemy blocks your attack and heals themselves!");
+                                       Console.WriteLine("You would have dealt "+playerDamageH+" damage.");
+                                       Console.WriteLine("You now deal "+(playerDamageH -2)+" damage.");
+                                       Console.WriteLine("Instead your enemy has healed "+enemyDamageHealedH+" damage!");
+                                       enemyHPH = enemyHPH + enemyDamageHealedH;
+                                       enemyHPH = enemyHPH -(playerDamageH -2);
+                                       enemyHealsRemainingH = enemyHealsRemainingH - 1;
+                                        Console.WriteLine("Your HP: "+playerHPH);
+                                        Console.WriteLine("Enemy HP: "+enemyHPH);
+                                    }
+                                }
+                            }
+                        }
+                        if (playerChoiceH == "b")
+                        {
+                            Console.WriteLine("You block the attack from your enemy!");
+                            Console.WriteLine("Your enemy would have dealt "+enemyDamageH+" damage.");
+                            Console.WriteLine("Your HP: "+playerHPH);
+                            Console.WriteLine("Enemy HP: "+enemyHPH);
+                        }
+                        if (playerChoiceH == "h")
+                        {
+                            if(healsRemainingH >0)
+                            {
+                            Console.WriteLine("You heal "+playerDamageHealedH+" damage taken from your enemy");
+                            Console.WriteLine("Your enemy would have dealt "+enemyDamageH+" damage!");
+                            Console.WriteLine("Instead your enemy now deals: "+(enemyDamageH-2)+" damage!");
+                            playerHPH = playerHPH + playerDamageHealedH;
+                            playerHPH = playerHPH - (enemyDamageH -2);
+                            healsRemainingH = healsRemainingH-1;
+                            Console.WriteLine("Your HP: "+playerHPH);
+                            Console.WriteLine("Enemy HP: "+enemyHPH);
+                            }
+                            if (healsRemainingH == 0)
+                            {
+                                Console.WriteLine("You have no heals remaining!");
+                            }
+                        }
+                        if (enemyHPH <1)
+                        {
+                            Console.WriteLine("You win!");
+                            Console.ReadLine();
+                        }
+                        if (playerHPH <1)
+                        {
+                            Console.WriteLine("You lose!");
+                            Console.ReadLine();
+                        }
+                    }
+                }
+        }
+    }
+}
